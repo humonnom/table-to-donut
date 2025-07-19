@@ -19,7 +19,7 @@ export default function Home() {
     if (data && data.length) {
       setTable(data);
     } else {
-      setError("표 데이터를 추출할 수 없습니다. (CORS 또는 표 없음)");
+      setError("表データを抽出できませんでした。（CORSまたは表が存在しません）");
     }
   };
 
@@ -27,7 +27,7 @@ export default function Home() {
     <main style={{ maxWidth: 480, margin: "40px auto", padding: 24 }}>
       <h1>Table to Donut</h1>
       <UrlInput onSubmit={handleUrlSubmit} />
-      {loading && <div style={{ marginTop: 24 }}>표 데이터를 불러오는 중...</div>}
+      {loading && <div style={{ marginTop: 24 }}>表データを取得中です...</div>}
       {error && <div style={{ color: "red", marginTop: 24 }}>{error}</div>}
       {table.length > 0 && <TablePreview data={table} />}
     </main>
