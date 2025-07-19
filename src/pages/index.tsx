@@ -42,7 +42,7 @@ export default function Home() {
   };
 
   // 숫자 컬럼만 필터링 및 합계 계산
-  let numericCols: { idx: number; name: string; sum: number }[] = [];
+  const numericCols: { idx: number; name: string; sum: number }[] = [];
   if (table.length > 1) {
     table[0].slice(1).forEach((col, idx) => {
       const values = table.slice(1).map(row => row[idx + 1]);
