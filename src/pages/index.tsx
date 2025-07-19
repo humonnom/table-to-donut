@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import UrlInput from "../components/UrlInput";
 import DonutChart from "../components/DonutChart";
 import { scrapeTableFromUrl } from "../utils/scrapeTable";
+import Head from "next/head";
 
 const recommendedUrls = [
   {
@@ -86,6 +87,10 @@ export default function Home() {
 
   return (
     <div style={{ display: "flex", minHeight: "100vh" }}>
+      <Head>
+        <title>See Wikipedia tables as donut charts</title>
+        <meta name="description" content="Visualize any Wikipedia table as a beautiful donut chart. Just paste the URL!" />
+      </Head>
       {/* 사이드바 */}
       <aside style={{ width: 220, background: "var(--sidebar-bg)", borderRight: "1px solid var(--border-color)", padding: 24 }}>
         <h3 style={{ fontSize: 18, marginBottom: 16, color: "var(--text-color)" }}>Recommended Wikipedia</h3>
@@ -115,7 +120,7 @@ export default function Home() {
       </aside>
       {/* 메인 콘텐츠 */}
       <main style={{ flex: 1, maxWidth: 600, margin: "40px auto", padding: 24, background: "var(--main-bg)", color: "var(--text-color)" }}>
-        <h1>Table to Donut</h1>
+        <h1 style={{ marginBottom: 32 }}>See Wikipedia tables<br />as donut charts</h1>
         <UrlInput onSubmit={handleUrlSubmit} value={url} setValue={setUrl} />
         {loading && <div style={{ marginTop: 24 }}>表データを取得中です...</div>}
         {error && <div style={{ color: "red", marginTop: 24 }}>{error}</div>}
